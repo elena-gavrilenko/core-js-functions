@@ -123,13 +123,14 @@ function memoize(func) {
   let cachedResult;
   let isCalled = false;
 
-  return function () {
+  function memoizedFunction() {
     if (!isCalled) {
       cachedResult = func();
       isCalled = true;
     }
     return cachedResult;
-  };
+  }
+  return memoizedFunction;
 }
 
 /**
